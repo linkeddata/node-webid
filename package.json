@@ -1,51 +1,49 @@
 {
-    "name": "webid",
-    "version": "0.1.0",
-    "description": "WebID module",
-	"homepage": "https://github.com/magnetik/node-webid",
-    "keywords": [
-        "webid",
-        "w3c",
-        "foaf"
-    ],
-    "maintainers": [{
-        "name": "Baptiste Lafontaine",
-        "email": "baptiste33@gmail.com",
-        "url": "http://magnetik.org"
-    }],
-    "contributors": [
+  "name": "webid",
+  "description": "WebID module",
+  "version": "0.2.1",
+  "author": {
+    "name": "Baptiste Lafontaine",
+    "email": "baptiste33@gmail.com"
+  },
+  "homepage": "https://github.com/linkeddata/node-webid",
+  "keywords": [
+    "webid",
+    "w3c",
+    "foaf"
+  ],
+  "maintainers": [
     {
-        "name":  "Baptiste Lafontaine",
-        "email": "baptiste33@gmail.com"
+      "name": "Nicola Greco",
+      "email": "me@nicolagreco.com"
     }
-    ],
-    "bugs": {
-        "url": "https://github.com/magnetik/node-webid/issues"
-    },
-    "licenses": [
+  ],
+  "contributors": [
     {
-        "type": "MIT"
+      "name": "Baptiste Lafontaine",
+      "email": "baptiste33@gmail.com"
     }
-    ],
-    "repository": [
+  ],
+  "bugs": {
+    "url": "https://github.com/linkeddata/node-webid/issues"
+  },
+  "license": "MIT",
+  "repository": [
     {
-        "type": "git",
-        "url": "git@github.com:magnetik/node-webid.git"
+      "type": "git",
+      "url": "git@github.com:linkeddata/node-webid.git"
     }
-    ],
-    "dependencies": {
-        "request": ">= 2.9.3",
-        "underscore": ">= 1.3.0",
-        "rdfstore": "=0.8.5",
-        "coffee-script": ">= 1.6.0"
-    },
-    "engines" : {
-        "node" : ">= 0.8.0"
-    },
-    "scripts": {
-        "pretest": "cake build",
-        "postinstall": "cake build",
-        "postupdate": "cake build"
-    },
-    "main": "./bin/webid"
+  ],
+  "dependencies": {
+    "rdfstore": "git://github.com/nicola/rdfstore-js.git#patch-1",
+    "request": "^2.58.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha ./test/*.js"
+  },
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "mocha": "^2.2.5"
+  }
 }
