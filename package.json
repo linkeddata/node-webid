@@ -39,6 +39,7 @@
     }
   ],
   "dependencies": {
+    "node-forge": "^0.6.38",
     "rdflib": "^0.2.6",
     "request": "^2.58.0"
   },

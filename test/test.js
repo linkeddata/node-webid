@@ -1,6 +1,7 @@
 var webid = require('../')
 var tls = require('../tls')
 var chai = require('chai')
+var fs = require('fs')
 var expect = chai.expect
 
 var validCert = {
@@ -32,7 +33,7 @@ describe('WebID', function () {
     })
 
     describe('verify', function () {
-      this.timeout(10000)
+      //this.timeout(10000)
 
       it('valid certificate should have a uri as result', function (done) {
         tls.verify(validCert, function (err, result) {
@@ -100,6 +101,35 @@ describe('WebID', function () {
         webid('tls').verify(cert_only_uri, function (err, result) {
           expect(err.message).to.equal('Missing modulus value in client certificate')
           done()
+        })
+      })
+    })
+
+    describe('generate', function () {
+      it('should create a valid certificate', function (done) {
+        // Read in the spkac.cnf file.
+        var spkacFile
+        try {
+            spkacFile = fs.readFileSync(__dirname+'/spkac.cnf')
+            spkacFile = new Buffer(spkacFile)
+        } catch (err) {
+            expect(err).to.not.exist
+        }
+
+        expect(spkacFile).to.exist
+
+        var opts = {
+            spkac: spkacFile,
+            agent: 'https://corysabol.databox.me/profile/card#me'
+        }
+        tls.generate(opts, function (err, cert) {
+          expect(err).to.not.exist
+          expect(cert).to.exist
+          tls.verify(cert.ldCert, function (err, result) {
+              expect(err).not.to.exist
+              expect(result).to.equal('https://corysabol.databox.me/profile/card#me')
+              done()
+          })
         })
       })
     })
