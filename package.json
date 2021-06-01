@@ -43,7 +43,7 @@
     }
   ],
   "dependencies": {
-    "node-forge": "^0.7.4",
+    "node-forge": "^0.10.0",
     "rdflib": "^0.2.6",
     "request": "^2.87.0"
   },
@@ -52,7 +52,7 @@
     "test": "./node_modules/mocha/bin/mocha ./test/*.js"
   },
   "devDependencies": {
-    "chai": "^3.0.0",
-    "mocha": "^5.2.0"
+    "chai": "^4.3.0",
+    "mocha": "^8.2.1"
   }
 }
